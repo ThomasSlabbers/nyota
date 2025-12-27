@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Welcome to Rapid Django Nuxt</h1>
+    <h1>Welcome to Nyota</h1>
     <p>A modern boilerplate for building web applications</p>
     
     <div class="api-test">

@@ -1,4 +1,4 @@
-# Rapid Django Nuxt
+# Nyota
 
 A modern, production-ready boilerplate for building web applications with Django REST Framework backend and Nuxt 3 frontend, featuring JWT authentication and Docker support.
 
@@ -20,7 +20,7 @@ A modern, production-ready boilerplate for building web applications with Django
 ## Project Structure
 
 ```
-Rapid-Django-Nuxt/
+nyota/
 ├── backend/                 # Django backend
 │   ├── config/             # Django project settings
 │   ├── users/              # User authentication app
@@ -50,8 +50,8 @@ Rapid-Django-Nuxt/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/rapid-django-nuxt.git
-cd rapid-django-nuxt
+git clone https://github.com/yourusername/nyota.git
+cd nyota
 ```
 
 ### 2. Set up environment variables
@@ -172,7 +172,7 @@ The `.env.example` file contains inline comments explaining which values to use 
 | `DEBUG` | Django debug mode | `True` | `False` |
 | `SECRET_KEY` | Django secret key | Default OK | Generate strong key |
 | `ALLOWED_HOSTS` | Allowed hostnames | `*` | `yourdomain.com` |
-| `DB_NAME` | Database name | `rapid_django_vue` | `rapid_django_vue` |
+| `DB_NAME` | Database name | `nyota` | `nyota` |
 | `DB_USER` | Database user | `postgres` | `postgres` |
 | `DB_PASSWORD` | Database password | `postgres` | Strong password |
 | `DB_HOST` | Database host | `db` | `db` |
@@ -222,7 +222,7 @@ curl -X POST http://localhost:8000/api/auth/login/ \
 ```env
 DEBUG=True
 SECRET_KEY=your-secret-key
-DB_NAME=rapid_django_vue
+DB_NAME=nyota
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_HOST=db

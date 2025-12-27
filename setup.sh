@@ -6,7 +6,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}Starting Rapid Django Vue setup...${NC}"
+echo -e "${GREEN}Starting Nyota setup...${NC}"
 
 # Check if Docker is running
 if ! docker info > /dev/null 2>&1; then

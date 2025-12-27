@@ -10,8 +10,8 @@
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/rapid-django-nuxt.git
-cd rapid-django-nuxt
+git clone https://github.com/yourusername/nyota.git
+cd nyota
 ```
 
 2. **Set up environment variables:**

@@ -1,13 +1,13 @@
 # Project Overview
 
-## Rapid Django Vue - Full-Stack Boilerplate
+## Nyota - Full-Stack Boilerplate
 
 A production-ready boilerplate for building modern web applications with Django REST Framework backend, Vue.js 3 frontend, JWT authentication, and Docker support.
 
 ## 📁 Project Structure
 
 ```
-Rapid-Django-Nuxt/
+nyota/
 ├── backend/                          # Django Backend
 │   ├── config/                       # Project configuration
 │   │   ├── __init__.py

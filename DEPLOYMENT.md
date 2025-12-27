@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide covers deploying Rapid Django Vue to production.
+This guide covers deploying Nyota to production.
 
 ## Pre-Deployment Checklist
 
@@ -28,7 +28,7 @@ Create a `.env` file based on `.env.prod.example`:
 DEBUG=False
 SECRET_KEY=<generate-a-strong-secret-key>
 ALLOWED_HOSTS=yourdomain.com
-DB_NAME=rapid_django_vue
+DB_NAME=nyota
 DB_USER=prod_user
 DB_PASSWORD=<strong-password>
 DB_HOST=db
@@ -52,8 +52,8 @@ Best for: Small to medium projects, VPS hosting
 
 1. **Clone the repository on your server:**
 ```bash
-git clone https://github.com/yourusername/rapid-django-nuxt.git
-cd rapid-django-nuxt
+git clone https://github.com/yourusername/nyota.git
+cd nyota
 ```
 
 2. **Set up environment variables:**
@@ -119,12 +119,12 @@ For large-scale deployments:
 ### PostgreSQL Production Settings
 
 ```sql
-CREATE DATABASE rapid_django_vue;
+CREATE DATABASE nyota;
 CREATE USER prod_user WITH PASSWORD 'strong_password';
 ALTER ROLE prod_user SET client_encoding TO 'utf8';
 ALTER ROLE prod_user SET default_transaction_isolation TO 'read committed';
 ALTER ROLE prod_user SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE rapid_django_vue TO prod_user;
+GRANT ALL PRIVILEGES ON DATABASE nyota TO prod_user;
 ```
 
 ### Backups
@@ -132,10 +132,10 @@ GRANT ALL PRIVILEGES ON DATABASE rapid_django_vue TO prod_user;
 Set up automated backups:
 ```bash
 # PostgreSQL backup
-pg_dump -U prod_user rapid_django_vue > backup_$(date +%Y%m%d_%H%M%S).sql
+pg_dump -U prod_user nyota > backup_$(date +%Y%m%d_%H%M%S).sql
 
 # Restore
-psql -U prod_user rapid_django_vue < backup_file.sql
+psql -U prod_user nyota < backup_file.sql
 ```
 
 ## Static Files

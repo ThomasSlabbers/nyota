@@ -1,9 +1,9 @@
-# Makefile for Rapid Django Vue
+# Makefile for Nyota
 
 .PHONY: help build up down restart logs migrate makemigrations createsuperuser shell test clean
 
 help:
-	@echo "Rapid Django Vue - Available commands:"
+	@echo "Nyota - Available commands:"
 	@echo "  make build          - Build Docker containers"
 	@echo "  make up             - Start all services"
 	@echo "  make down           - Stop all services"

@@ -1,4 +1,4 @@
-# Contributing to Rapid Django Vue
+# Contributing to Nyota
 
 Thank you for considering contributing to this project! Here are some guidelines to help you get started.
 

@@ -1,6 +1,6 @@
 # Environment Configuration Guide
 
-This document explains how to configure environment variables for Rapid Django Nuxt.
+This document explains how to configure environment variables for Nyota.
 
 ## Quick Start
 
@@ -41,7 +41,7 @@ docker-compose -f docker-compose.prod.yml up -d
 | `DEBUG` | Yes | Enable debug mode | `True` | `False` |
 | `SECRET_KEY` | Yes | Django secret key | Default is OK | Generate strong key |
 | `ALLOWED_HOSTS` | Yes | Allowed hostnames | `*` or `localhost` | `yourdomain.com` |
-| `DB_NAME` | Yes | Database name | `rapid_django_vue` | `rapid_django_vue` |
+| `DB_NAME` | Yes | Database name | `nyota` | `nyota` |
 | `DB_USER` | Yes | Database user | `postgres` | `postgres` |
 | `DB_PASSWORD` | Yes | Database password | `postgres` | Strong password |
 | `DB_HOST` | Yes | Database host | `db` | `db` (Docker) |
@@ -125,8 +125,8 @@ docker-compose -f docker-compose.prod.yml up -d
 ssh user@your-server-ip
 
 # 2. Clone your repository
-git clone https://github.com/yourusername/rapid-django-nuxt.git
-cd rapid-django-nuxt
+git clone https://github.com/yourusername/nyota.git
+cd nyota
 
 # 3. Set up environment
 cp .env.example .env

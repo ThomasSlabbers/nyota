@@ -1,5 +1,5 @@
 @echo off
-echo Starting Rapid Django Vue setup...
+echo Starting Nyota setup...
 
 docker info >nul 2>&1
 if %errorlevel% neq 0 (

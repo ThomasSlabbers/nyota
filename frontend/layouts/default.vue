@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="navbar">
       <div class="nav-container">
-        <NuxtLink to="/" class="logo">Rapid Django Nuxt</NuxtLink>
+        <NuxtLink to="/" class="logo">Nyota</NuxtLink>
         <div class="nav-links">
           <NuxtLink to="/">Home</NuxtLink>
           <template v-if="!authStore.isAuthenticated">
