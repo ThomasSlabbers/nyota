@@ -135,6 +135,10 @@
                 <span class="status-dot status-dot-pending"></span>
                 <span>Applied - Pending Approval</span>
               </div>
+              <div v-else-if="authStore.user.profile.status === 'seeking_support'" class="status-badge status-seeking">
+                <span class="status-dot status-dot-seeking"></span>
+                <span>Seeking Support</span>
+              </div>
               <div v-else-if="authStore.user.profile.status === 'enrolled'" class="status-badge status-enrolled">
                 <span class="status-dot"></span>
                 <span>Enrolled</span>
@@ -142,6 +146,9 @@
               
               <p v-if="authStore.user.profile.status === 'pending'" class="status-description">
                 Your application is under review. We'll notify you once a decision has been made. Thank you for your patience!
+              </p>
+              <p v-else-if="authStore.user.profile.status === 'seeking_support'" class="status-description">
+                Your profile is visible to potential supporters and partners. Keep your project information updated and continue building!
               </p>
               <p v-else-if="authStore.user.profile.status === 'enrolled'" class="status-description">
                 You're enrolled in the Nyota Catalyst program since {{ formatDate(authStore.user.profile.enrollment_date) }}. 
@@ -739,6 +746,12 @@ onMounted(async () => {
   color: #166534;
 }
 
+.status-badge.status-seeking {
+  background: #fef9c3;
+  border: 1px solid #fde047;
+  color: #854d0e;
+}
+
 .status-badge.status-pending {
   background: #fef3c7;
   border: 1px solid #fde68a;
@@ -751,6 +764,10 @@ onMounted(async () => {
   background: #22c55e;
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot-seeking {
+  background: #eab308;
 }
 
 .status-dot-pending {

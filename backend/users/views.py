@@ -3,11 +3,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.views import TokenObtainPairView
+from .models import UserProfile
 from .serializers import (
     RegisterSerializer, 
     UserSerializer, 
     UserUpdateSerializer,
-    CustomTokenObtainPairSerializer
+    CustomTokenObtainPairSerializer,
+    FoundersListSerializer
 )
 
 
@@ -49,4 +51,32 @@ class HealthCheckView(APIView):
             'message': 'API is running successfully!',
             'version': '1.0.0'
         })
+
+
+class FoundersListView(generics.ListAPIView):
+    """View for listing all founders with optional status filtering"""
+    serializer_class = FoundersListSerializer
+    permission_classes = (permissions.AllowAny,)
+    
+    def get_queryset(self):
+        queryset = UserProfile.objects.select_related('user').all()
+        
+        # Filter by status if provided
+        status = self.request.query_params.get('status', None)
+        if status:
+            if status == 'all':
+                # Show all founders except pending (only seeking_support and enrolled)
+                queryset = queryset.exclude(status=UserProfile.STATUS_PENDING)
+            elif status in ['pending', 'seeking_support', 'enrolled']:
+                queryset = queryset.filter(status=status)
+        else:
+            # Default: exclude pending applications
+            queryset = queryset.exclude(status=UserProfile.STATUS_PENDING)
+        
+        return queryset.order_by('-created_at')
+    
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
 

@@ -5,6 +5,36 @@ from django.contrib.auth import authenticate
 from .models import UserProfile
 
 
+class FoundersListSerializer(serializers.ModelSerializer):
+    """Public serializer for listing founders"""
+    username = serializers.CharField(source='user.username', read_only=True)
+    first_name = serializers.CharField(source='user.first_name', read_only=True)
+    last_name = serializers.CharField(source='user.last_name', read_only=True)
+    profile_picture_url = serializers.SerializerMethodField()
+    status_display = serializers.CharField(source='get_status_display', read_only=True)
+    
+    class Meta:
+        model = UserProfile
+        fields = [
+            'username', 
+            'first_name', 
+            'last_name', 
+            'profile_picture_url',
+            'background', 
+            'project_description', 
+            'status',
+            'status_display',
+            'enrollment_date'
+        ]
+    
+    def get_profile_picture_url(self, obj):
+        if obj.profile_picture:
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(obj.profile_picture.url)
+        return None
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     profile_picture_url = serializers.SerializerMethodField()
     
@@ -69,7 +99,7 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         instance.save()
         
         # Update or create profile
-        profile, created = UserProfile.objects.get_or_create(user=instance)
+        profile, _ = UserProfile.objects.get_or_create(user=instance)
         if background is not None:
             profile.background = background
         if project_description is not None:

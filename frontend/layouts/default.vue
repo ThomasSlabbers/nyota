@@ -4,6 +4,7 @@
       <div class="nav-container">
         <NuxtLink to="/" class="nav-logo">Nyota Catalyst</NuxtLink>
         <div class="nav-links">
+          <NuxtLink to="/founders" class="nav-link">Founders</NuxtLink>
           <template v-if="!authStore.isAuthenticated">
             <NuxtLink to="/login" class="nav-link">Sign in</NuxtLink>
             <NuxtLink to="/register" class="nav-button">Apply now</NuxtLink>

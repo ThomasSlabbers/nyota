@@ -7,9 +7,11 @@ class UserProfile(models.Model):
     
     # Application Status Choices
     STATUS_PENDING = 'pending'
+    STATUS_SEEKING_SUPPORT = 'seeking_support'
     STATUS_ENROLLED = 'enrolled'
     STATUS_CHOICES = [
         (STATUS_PENDING, 'Applied - Pending Approval'),
+        (STATUS_SEEKING_SUPPORT, 'Seeking Support'),
         (STATUS_ENROLLED, 'Enrolled'),
     ]
     
@@ -67,4 +69,8 @@ class UserProfile(models.Model):
     @property
     def is_pending(self):
         return self.status == self.STATUS_PENDING
+    
+    @property
+    def is_seeking_support(self):
+        return self.status == self.STATUS_SEEKING_SUPPORT
 
